@@ -1,0 +1,182 @@
+[PAT NO.    0]
+
+
+[========]
+[ Option ]
+[========]
+
+[ opt ] 1
+[ tanh    ] [ Replication ]
+
+[=========]
+[ Padding ]
+[=========]
+
+[ IMAGE #1 ]
+
+[1]        0        1        2        3        4        5        6     [2]        0        1        2        3        4        5        6     [3]        0        1        2        3        4        5        6     
+___________________________________________________________________    ___________________________________________________________________    ___________________________________________________________________    
+ 0| 3f000000 3f000000 be838381 3dd27bb8 bea8fe22 3f000000 3f000000      0| bec369c5 bec369c5 3efa4e72 bea75033 be166670 bd6fb2a8 bd6fb2a8      0| beba621a beba621a 3f000000 bee7613f beee18bc 3f000000 3f000000     
+ 1| 3f000000 3f000000 be838381 3dd27bb8 bea8fe22 3f000000 3f000000      1| bec369c5 bec369c5 3efa4e72 bea75033 be166670 bd6fb2a8 bd6fb2a8      1| beba621a beba621a 3f000000 bee7613f beee18bc 3f000000 3f000000     
+ 2| beb97656 beb97656 3f000000 3f000000 3f000000 3cc90b80 3cc90b80      2| 3d82b860 3d82b860 be94be21 bedfcc9a bea722ac 3ecc01b2 3ecc01b2      2| 3f000000 3f000000 bed21ea5 3f000000 be7ece70 3ed76d56 3ed76d56     
+ 3| 3f000000 3f000000 bd2e9620 3f000000 bed9d120 beedf3c7 beedf3c7      3| bee5949f bee5949f 3eb4f166 be785f62 bea03dc4 bd7dca38 bd7dca38      3| 3e835090 3e835090 beee8d62 bed3cab3 bee4f3ac 3f000000 3f000000     
+ 4| bec4bcaa bec4bcaa bec69f7c bee968ee bebba970 bebdd951 bebdd951      4| bebb6741 bebb6741 bebcaba1 be9adc91 bedf96d7 3f000000 3f000000      4| beee11e1 beee11e1 bed8589f bed0e9d8 3f000000 bedecac8 bedecac8     
+ 5| 3f000000 3f000000 be564478 3eb84496 3f000000 bd93a414 bd93a414      5| beeaece8 beeaece8 3f000000 3dfd02c0 3f000000 be0d7c42 be0d7c42      5| be4fd5c2 be4fd5c2 be8d7cfd 3e640e54 bee8f3f3 3f000000 3f000000     
+ 6| 3f000000 3f000000 be564478 3eb84496 3f000000 bd93a414 bd93a414      6| beeaece8 beeaece8 3f000000 3dfd02c0 3f000000 be0d7c42 be0d7c42      6| be4fd5c2 be4fd5c2 be8d7cfd 3e640e54 bee8f3f3 3f000000 3f000000     
+
+
+[=====================]
+[ Convolution Partial ]
+[=====================]
+
+[ IMAGE #1 ]
+
+[kernel channel 1]
+
+[1]        0        1        2        3        4        5     [2]        0        1        2        3        4        5     [3]        0        1        2        3        4        5     
+__________________________________________________________    __________________________________________________________    __________________________________________________________    
+ 0| 3d9db910 3c904518 bc39c148 bc949cb0 3c6a6f20 3d9db910      0| 3e86f5f7 3eac114d becfa3cf 3e7671d8 3ddecf67 3d258bb6      0| 3e42d29e bed593e2 3ed0d33d 3e7b4cea bedee76a be85cbc0     
+ 1| 3c429f20 3f4313f9 be093284 3e69c3a4 bf136438 3d285480      1| bdf52eec 3eed2bf2 bc61a6e0 3eba9900 bb01d500 beb49e73      1| 3e6a3fc3 3d3f9bc8 bda23290 3eedae0e beb5b473 be879a98     
+ 2| 3c190c30 bf201b25 3e9d5aea bec57a4c 3e405cf9 bd07e9bc      2| 3ecb15b3 bdead8ce be369d2e 3e606d8c 3ef182b7 3df7ba58      2| be8b5a20 3ea53f22 be639381 3d589fcc bed50490 be5d90d7     
+ 3| 3c275df0 3e72c9bc be9737a4 3ee10e14 bd3f058c bd841180      3| 3e74893c 3f240768 3d533800 3e758dbc 3d6c8790 bee1a780      3| be2a2e62 3e22125c 3e5ef9f4 3c69bc90 3d7b5218 be9b21aa     
+ 4| 3bf97660 beb0dfc0 3e88aea0 3cc2ef18 be8cec54 bd0d8200      4| 3eaa5165 bd8ba1e4 be9b11ac bec3684a 3e6b7859 3e50aa15      4| 3e826723 3e8158f1 3dced032 bc898c44 bdcc13c4 3e89c696     
+ 5| 3d9db910 3caee290 3c4bd000 3d880c40 3d0388c4 bc35ecb6      5| 3ea23fea 3ecb1eb0 bec0d9e6 bd5d1bc8 becc01a8 3dc36e8f      5| 3dd93ef0 3e217242 be535a84 3eb853b5 beddf9f0 be85cbc0     
+
+[kernel channel 2]
+
+[1]        0        1        2        3        4        5     [2]        0        1        2        3        4        5     [3]        0        1        2        3        4        5     
+__________________________________________________________    __________________________________________________________    __________________________________________________________    
+ 0| be2118cd be972327 3e15d7c4 bde3b3b8 3e829696 be2118cd      0| bf3826db 3dbf3f16 3e23c35f bee558f1 be46ffd0 bde1e26a      0| 3ec4153d be1b3df1 3d80e211 3ef793b8 bddcd8a0 bf06a950     
+ 1| 3e1a13fd bf008436 bc1c3e30 bec7f692 3ebf557a 3c4b30f9      1| bea67fee bd326916 be754a83 bf1358b8 bd9e21d4 3e9687fc      1| 3e5c3bb8 bce21de4 bd883af3 3ed6d590 bdcf59da bf02b81e     
+ 2| be467767 3ed1cd3e be0b5b62 3e0c19c0 bd55d4cc 3e2af225      2| beaa7091 be264fe5 be9e7b2a bf207c8c be073a61 3eaff074      2| bef517de 3d5bb2da 3ca77bfa bb3a5140 be237246 beea85d0     
+ 3| 3e2220a4 bde4fe6b 3edbf253 be9d4b58 3dc1970e 3de6cb4d      3| bf45b132 bebeac05 be77c678 bf1a8342 be2bb8c6 3ec2c53c      3| be04bc4a 3e441a02 3ee94649 3e99912c 3c242698 beb04800     
+ 4| be476bba 3cec3fe8 be205a5a be1729fe bc6a439a 3c247e74      4| bf45a03f beb7079c bd66bf20 bdc6c420 3e4a0f81 3ec16932      4| 3ee063e8 3edcb43e 3ea7a5fb 3bbcb810 bd951be5 3e8d585c     
+ 5| be2118cd be92b240 3e2d9482 bdb3a5c6 be85e78d 3cb9d0fc      5| bf5d6313 3cf8b610 3f174647 3f159482 3eb1741a be8554f0      5| 3e5aa6b1 3e84921a bc93cb63 3e3d6e97 bde5c316 bf06a950     
+
+
+[=================]
+[ Convolution Sum ]
+[=================]
+
+[ IMAGE #1 ]
+
+[kernel channel 1]
+
+[1]        0        1        2        3        4        5     
+__________________________________________________________    
+ 0| 3f07e6c5 bd81f910 bc13d380 3eef9596 be9fe017 be13580a 
+ 1| 3df7a47e 3fa2d1d7 be68663a 3f874a38 bf6ec046 bf13973e 
+ 2| 3e0907e8 bed5ad5c bdbef5b6 bde8be32 3e795948 be03ae1a 
+ 3| 3da9a172 3f849f37 bcd53aa0 3f31916b 3d946a0e bf4ee6c5 
+ 4| 3f184f30 be24de90 3d854402 bebfd21c be146a31 3ee06b60 
+ 5| 3efffdea 3f1362fd bf121454 3ebeb34c bf4cc540 be353f04 
+
+[kernel channel 2]
+
+[1]        0        1        2        3        4        5     
+__________________________________________________________    
+ 0| befcc4df beb4f25a 3ebd0616 bd9ac8a0 bd40fbd0 bf4b2bd0 
+ 1| 3d253f64 bf12bbb6 bea195f0 bf0be939 3e47ed1d be511d70 
+ 2| bf80b108 3e9a1ba7 bed9b11b befc60da beb010ed 3d571db0 
+ 3| bf3e581c be95de9f 3f24aab0 bf1c6058 bd8155ab 3e18601e 
+ 4| bf07493a 3dd1c280 3dea83a8 be74a64e 3de1baa9 3f29f2c1 
+ 5| bf4eff9a 3b359d80 3f3e0d0d 3f2e7b6f bcde4388 bf438540 
+
+
+[=============]
+[ Max pooling ]
+[=============]
+
+[ IMAGE #1 ]
+
+[kernel channel 1]
+
+[1]        0        1     
+______________________    
+ 0| 3fa2d1d7 3f874a38 
+ 1| 3f849f37 3f31916b 
+
+[kernel channel 2]
+
+[1]        0        1     
+______________________    
+ 0| 3ebd0616 3e47ed1d 
+ 1| 3f3e0d0d 3f2e7b6f 
+
+
+[============]
+[ Activation ]
+[============]
+
+[ IMAGE #1 ]
+
+[kernel channel 1]
+
+[1]        0        1     
+______________________    
+ 0| 3f5ab675 3f48d4a5 
+ 1| 3f46beab 3f19ada4 
+
+[kernel channel 2]
+
+[1]        0        1     
+______________________    
+ 0| 3eb4e12d 3e456c8e 
+ 1| 3f216e03 3f17b0ae 
+
+
+[===============]
+[ Fully Connect ]
+[===============]
+
+[W]        0        1        2     
+_______________________________    
+ 1| 3e020c57 bf0ccc27 bf65f7dc     
+
+
+[=========]
+[ Softmax ]
+[=========]
+
+[W]        0        1        2     
+_______________________________    
+ 1| 3f092189 3e8b5d56 3e44bf2d     
+
+
+[============]
+[ Probabilty ]
+[============]
+
+[W]        0        1        2     
+_______________________________    
+ 1| 3f092189 3e8b5d56 3e44bf2d     
+
+
+[============]
+[ Error Check]
+[============]
+
+[Is Error or not] : 1
+[Output]
+
+ 0| 3e44bf2f 3f09218a 3e8b5d57 
+
+[Error rate flag] : 
+[Formula] : |gold - ans| / gold < 0.00500000
+
+ 1| 00000001 00000001 00000001 
+
+[Error rate] : |gold - ans|
+
+ 2| 3eafe37a 3e86e5be 3da3f702 
+
+[Error rate] : gold * 0.00500000
+
+ 3| 3b2f8716 3ab262fd 3a7bd5fc 
+
+[Error flag] : 
+[Formula] : |float(ans) - float(gold)| < 0.00010000
+
+ 4| 00000001 00000001 00000001 
+
+

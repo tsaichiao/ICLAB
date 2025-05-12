@@ -1,0 +1,59 @@
+[PAT NO.    0]
+
+
+[ Input Random Setting ]
+
+[ Minimum ] :                                                                                        -0.5000000000
+[ Maximum ] :                                                                                         0.5000000000
+
+[========]
+[ Option ]
+[========]
+
+[ opt ] 1
+[ tanh    ] [ Replication ]
+
+[=======]
+[ Input ]
+[=======]
+
+[ IMAGE #1 ]
+
+[1]        0        1        2        3        4     [2]        0        1        2        3        4     [3]        0        1        2        3        4     
+_________________________________________________    _________________________________________________    _________________________________________________    
+ 0| 3f000000 be838381 3dd27bb8 bea8fe22 3f000000      0| bec369c5 3efa4e72 bea75033 be166670 bd6fb2a8      0| beba621a 3f000000 bee7613f beee18bc 3f000000     
+ 1| beb97656 3f000000 3f000000 3f000000 3cc90b80      1| 3d82b860 be94be21 bedfcc9a bea722ac 3ecc01b2      1| 3f000000 bed21ea5 3f000000 be7ece70 3ed76d56     
+ 2| 3f000000 bd2e9620 3f000000 bed9d120 beedf3c7      2| bee5949f 3eb4f166 be785f62 bea03dc4 bd7dca38      2| 3e835090 beee8d62 bed3cab3 bee4f3ac 3f000000     
+ 3| bec4bcaa bec69f7c bee968ee bebba970 bebdd951      3| bebb6741 bebcaba1 be9adc91 bedf96d7 3f000000      3| beee11e1 bed8589f bed0e9d8 3f000000 bedecac8     
+ 4| 3f000000 be564478 3eb84496 3f000000 bd93a414      4| beeaece8 3f000000 3dfd02c0 3f000000 be0d7c42      4| be4fd5c2 be8d7cfd 3e640e54 bee8f3f3 3f000000     
+
+
+[========]
+[ Kernel ]
+[========]
+
+[channel 1]
+
+[1]        0        1     [2]        0        1     [3]        0        1     
+______________________    ______________________    ______________________    
+ 0| 3f000000 bed7d0de      0| bea912a8 3f000000      0| bdd4ed3c beed2cef     
+ 1| bed9529a 3f000000      1| bee32945 bed56014      1| 3e91918a be75819a     
+
+[channel 2]
+
+[1]        0        1     [2]        0        1     [3]        0        1     
+______________________    ______________________    ______________________    
+ 0| beea546a 3f000000      0| 3f000000 3f000000      0| bece9a32 bee88c6d     
+ 1| bd204200 bea2bc23      1| 3ee6febe 3eddfe48      1| bcf44610 be287480     
+
+
+[========]
+[ Weight ]
+[========]
+
+[W]        0        1        2        3        4        5        6        7     
+____________________________________________________________________________    
+ 1| 3e8330c0 be987e80 3f000000 bcdfc730 3e87a81c be19370a be81943a be69a3ee     
+ 2| bed356ad 3f000000 beeabe1a beaa1ecb 3eec6762 bed93bce be95c5f9 3dee5740     
+ 3| be882eee beda5822 bee4571d bedfc25e 3e26bcd8 bee46001 3e0f941c 3eb7496a     
+
