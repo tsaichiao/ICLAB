@@ -1,0 +1,35 @@
+ 
+****************************************
+check_design summary:
+Version:     T-2022.03
+Date:        Sun Sep 29 21:42:26 2024
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                      1
+    Constant outputs (LINT-52)                                      1
+
+Cells                                                               4
+    Cells do not drive (LINT-1)                                     4
+
+Nets                                                               10
+    Unloaded nets (LINT-2)                                         10
+--------------------------------------------------------------------------------
+
+Warning: In design 'TETRIS', cell 'B_2788' does not drive any nets. (LINT-1)
+Warning: In design 'TETRIS', cell 'B_2794' does not drive any nets. (LINT-1)
+Warning: In design 'TETRIS', cell 'B_2809' does not drive any nets. (LINT-1)
+Warning: In design 'TETRIS', cell 'B_2815' does not drive any nets. (LINT-1)
+Warning: In design 'TETRIS', net 'net6062' driven by pin 'C20730/Z' has no loads. (LINT-2)
+Warning: In design 'TETRIS', net 'net6061' driven by pin 'C20000/Z' has no loads. (LINT-2)
+Warning: In design 'TETRIS', net 'net6060' driven by pin 'C19327/Z' has no loads. (LINT-2)
+Warning: In design 'TETRIS', net 'net6059' driven by pin 'C18654/Z' has no loads. (LINT-2)
+Warning: In design 'TETRIS', net 'net6058' driven by pin 'C17981/Z' has no loads. (LINT-2)
+Warning: In design 'TETRIS', net 'net6057' driven by pin 'C17308/Z' has no loads. (LINT-2)
+Warning: In design 'TETRIS', net 'net6056' driven by pin 'C16635/Z' has no loads. (LINT-2)
+Warning: In design 'TETRIS', net 'net6055' driven by pin 'C15962/Z' has no loads. (LINT-2)
+Warning: In design 'TETRIS', net 'net6054' driven by pin 'C15289/Z' has no loads. (LINT-2)
+Warning: In design 'TETRIS', net 'net6053' driven by pin 'C14847/Z' has no loads. (LINT-2)
+Warning: In design 'TETRIS', output port 'score[3]' is connected directly to 'logic 0'. (LINT-52)
+1

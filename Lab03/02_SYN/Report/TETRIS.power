@@ -1,0 +1,54 @@
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : TETRIS
+Version: T-2022.03
+Date   : Sun Sep 29 21:43:00 2024
+****************************************
+
+
+Library(s) Used:
+
+    slow (File: /RAID2/COURSE/iclab/iclabTA01/umc018/Synthesis/slow.db)
+
+
+Operating Conditions: slow   Library: slow
+Wire Load Model Mode: top
+
+
+Global Operating Voltage = 1.62 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000pf
+    Time Units = 1ns
+    Dynamic Power Units = 1mW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+Attributes
+----------
+i - Including register clock pin internal power
+
+
+  Cell Internal Power  =   1.3961 mW   (88%)
+  Net Switching Power  = 188.4720 uW   (12%)
+                         ---------
+Total Dynamic Power    =   1.5846 mW  (100%)
+
+Cell Leakage Power     =   2.1627 uW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      1.2203            0.0000            0.0000            0.0000  (   0.00%)  i
+register       5.8654e-02        5.7080e-03        6.0376e+05            1.2852  (  81.00%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational      0.1172            0.1828        1.5590e+06            0.3015  (  19.00%)
+--------------------------------------------------------------------------------------------------
+Total              1.3961 mW         0.1885 mW     2.1627e+06 pW         1.5868 mW
+1
