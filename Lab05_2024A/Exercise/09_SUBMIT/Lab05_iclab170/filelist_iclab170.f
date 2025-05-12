@@ -1,0 +1,5 @@
+TESTBED.v
+../04_MEM/MEM_16_16.v
+../04_MEM/MEM_32_32.v
+../04_MEM/MEM_16b_512.v
+../04_MEM/MEM_16b_128.v

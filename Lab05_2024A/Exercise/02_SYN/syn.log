@@ -1,0 +1,960 @@
+#======================================================
+#
+# Synopsys Synthesis Scripts (Design Vision dctcl mode)
+#
+#======================================================
+#======================================================
+#  Set Libraries
+#======================================================
+#
+#set search_path {./../01_RTL \
+#                 ./../04_MEM/ \
+#                                 /RAID2/COURSE/BackUp/2023_Spring/iclab/iclabta01/UMC018_CBDK/CIC/SynopsysDC/db/ \
+#                 /~iclabta01/umc018/Synthesis/ }
+#                 /usr/synthesis/libraries/syn/ \
+#                  /usr/synthesis/dw/ }
+#set synthetic_library {dw_foundation.sldb}
+#set link_library {MYMEMORY_WC.db MEMORY2_WC.db fsa0m_a_generic_core_ss1p62v125c.db fsa0m_a_generic_core_ff1p98vm40c.db fsa0m_a_t33_generic_io_ss1p62v125c.db fsa0m_a_t33_generic_io_tt1p8v25c.db dw_foundation.sldb} 
+#set target_library {slow.db}
+#
+#======================================================
+# (A) Global Parameters
+#======================================================
+set DESIGN "TMIP"
+TMIP
+set CYCLE 11.3
+11.3
+set INPUT_DLY [expr 0.5*$CYCLE]
+5.65
+set OUTPUT_DLY [expr 0.5*$CYCLE]
+5.65
+#======================================================
+# (B) Read RTL Code
+#======================================================
+# (B-1) analyze + elaborate
+set hdlin_auto_save_templates TRUE
+TRUE
+analyze -f sverilog $DESIGN\.v 
+Running PRESTO HDLC
+Compiling source file ../01_RTL/TMIP.v
+Presto compilation completed successfully.
+Loading db file '/RAID2/COURSE/iclab/iclabTA01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_generic_core_ss1p62v125c.db'
+Loading db file '/RAID2/COURSE/iclab/iclabTA01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_generic_core_ff1p98vm40c.db'
+Loading db file '/RAID2/COURSE/iclab/iclabTA01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_t33_generic_io_ss1p62v125c.db'
+Loading db file '/RAID2/COURSE/iclab/iclabTA01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_t33_generic_io_tt1p8v25c.db'
+Loading db file '/RAID2/COURSE/iclab/iclab170/Lab05_2024A/Exercise/04_MEM/MEM_16b_512_WC.db'
+Loading db file '/RAID2/COURSE/iclab/iclab170/Lab05_2024A/Exercise/04_MEM/MEM_16b_128_WC.db'
+Loading db file '/RAID2/COURSE/iclab/iclab170/Lab05_2024A/Exercise/04_MEM/MEM_16_16_WC.db'
+Loading db file '/RAID2/COURSE/iclab/iclab170/Lab05_2024A/Exercise/04_MEM/MEM_32_32_WC.db'
+Loading db file '/usr/cad/synopsys/synthesis/cur/libraries/syn/dw_foundation.sldb'
+Loading db file '/usr/cad/synopsys/synthesis/cur/libraries/syn/standard.sldb'
+1
+elaborate $DESIGN  
+Loading db file '/usr/cad/synopsys/synthesis/2022.03/libraries/syn/gtech.db'
+Loading db file '/usr/cad/synopsys/synthesis/2022.03/libraries/syn/standard.sldb'
+  Loading link library 'fsa0m_a_generic_core_ss1p62v125c'
+  Loading link library 'fsa0m_a_generic_core_ff1p98vm40c'
+  Loading link library 'fsa0m_a_t33_generic_io_ss1p62v125c'
+  Loading link library 'fsa0m_a_t33_generic_io_tt1p8v25c'
+  Loading link library 'MEM_16b_512_WC'
+  Loading link library 'MEM_16b_128_WC'
+  Loading link library 'MEM_16_16_WC'
+  Loading link library 'MEM_32_32_WC'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Warning:  ../01_RTL/TMIP.v:4622: signed to unsigned assignment occurs. (VER-318)
+
+Statistics for case statements in always block at line 108 in file
+        '../01_RTL/TMIP.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           109            |    auto/auto     |
+|           137            |    auto/auto     |
+|           150            |    auto/auto     |
+|           159            |    auto/auto     |
+|           168            |    auto/auto     |
+===============================================
+
+Statistics for case statements in always block at line 509 in file
+        '../01_RTL/TMIP.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           514            |     no/auto      |
+===============================================
+
+Statistics for case statements in always block at line 794 in file
+        '../01_RTL/TMIP.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           796            |     no/auto      |
+|           936            |     no/auto      |
+|           1173           |     no/auto      |
+===============================================
+
+Statistics for case statements in always block at line 1411 in file
+        '../01_RTL/TMIP.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           1434           |     no/auto      |
+|           1436           |     no/auto      |
+|           1868           |     no/auto      |
+|           2662           |     no/auto      |
+===============================================
+
+Statistics for case statements in always block at line 4290 in file
+        '../01_RTL/TMIP.v'
+===============================================
+|           Line           |  full/ parallel  |
+===============================================
+|           4325           |     no/auto      |
+|           4329           |    auto/auto     |
+|           4337           |    auto/auto     |
+|           4370           |    auto/auto     |
+|           4394           |     no/auto      |
+|           4472           |     no/auto      |
+|           4518           |     no/auto      |
+===============================================
+
+Inferred memory devices in process
+        in routine TMIP line 100 in file
+                '../01_RTL/TMIP.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     c_state_reg     | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine TMIP line 188 in file
+                '../01_RTL/TMIP.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       cnt_reg       | Flip-flop |   3   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine TMIP line 208 in file
+                '../01_RTL/TMIP.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    cnt_temp_reg     | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine TMIP line 229 in file
+                '../01_RTL/TMIP.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    temp_reg_reg     | Flip-flop |  72   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine TMIP line 253 in file
+                '../01_RTL/TMIP.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|       red_reg       | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine TMIP line 262 in file
+                '../01_RTL/TMIP.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      green_reg      | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine TMIP line 271 in file
+                '../01_RTL/TMIP.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      blue_reg       | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine TMIP line 288 in file
+                '../01_RTL/TMIP.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   action2_8b_reg    | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|   action1_8b_reg    | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine TMIP line 296 in file
+                '../01_RTL/TMIP.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   action2_16b_reg   | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|   action0_16b_reg   | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|   action1_16b_reg   | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine TMIP line 391 in file
+                '../01_RTL/TMIP.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   addr_img_0_reg    | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine TMIP line 404 in file
+                '../01_RTL/TMIP.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     n_addr_reg      | Flip-flop |   9   |  Y  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine TMIP line 432 in file
+                '../01_RTL/TMIP.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    action_s_reg     | Flip-flop |  24   |  Y  | N  | N  | N  | N  | N  | N  |
+|  input_act_cnt_reg  | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    neg_flag_reg     | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|    flip_flag_reg    | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine TMIP line 477 in file
+                '../01_RTL/TMIP.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     max_op3_reg     | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|     max_op0_reg     | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|     max_op1_reg     | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|     max_op2_reg     | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine TMIP line 486 in file
+                '../01_RTL/TMIP.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    min_out_s_reg    | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+|    max_out_s_reg    | Flip-flop |   8   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine TMIP line 794 in file
+                '../01_RTL/TMIP.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     reg16x3_reg     | Flip-flop |  384  |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine TMIP line 4276 in file
+                '../01_RTL/TMIP.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|    temp_ans_reg     | Flip-flop |  20   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine TMIP line 4290 in file
+                '../01_RTL/TMIP.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|      move_reg       | Flip-flop |   1   |  N  | N  | N  | N  | N  | N  | N  |
+|   do_act_cnt_reg    | Flip-flop |   4   |  Y  | N  | Y  | N  | N  | N  | N  |
+|   addr_write_reg    | Flip-flop |   9   |  Y  | N  | Y  | N  | N  | N  | N  |
+|    addr_read_reg    | Flip-flop |   9   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     finish_reg      | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|       out_reg       | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+| image_size_reg_reg  | Flip-flop |   2   |  Y  | N  | Y  | N  | N  | N  | N  |
+|  mem1to0_flag_reg   | Flip-flop |   1   |  N  | N  | Y  | N  | N  | N  | N  |
+|     act_cnt_reg     | Flip-flop |   8   |  Y  | N  | Y  | N  | N  | N  | N  |
+|     out_ans_reg     | Flip-flop |  20   |  Y  | N  | Y  | N  | N  | N  | N  |
+| ori_imgsize_reg_reg | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine TMIP line 4604 in file
+                '../01_RTL/TMIP.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     cnt_20_reg      | Flip-flop |   5   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+
+Inferred memory devices in process
+        in routine TMIP line 4614 in file
+                '../01_RTL/TMIP.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|     out_num_reg     | Flip-flop |   9   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
+Statistics for MUX_OPs
+======================================================
+| block name/line  | Inputs | Outputs | # sel inputs |
+======================================================
+|     TMIP/137     |   8    |    3    |      3       |
+======================================================
+Presto compilation completed successfully. (TMIP)
+Elaborated 1 design.
+Current design is now 'TMIP'.
+Information: Building the design 'maxpooling'. (HDL-193)
+Presto compilation completed successfully. (maxpooling)
+Information: Building the design 'minpooling'. (HDL-193)
+Presto compilation completed successfully. (minpooling)
+Information: Building the design 'imagefilter'. (HDL-193)
+Presto compilation completed successfully. (imagefilter)
+1
+# (B-2) read_sverilog
+#read_sverilog $DESIGN\.v
+# (B-3) set current design
+current_design $DESIGN
+Current design is 'TMIP'.
+{TMIP}
+link
+
+  Linking design 'TMIP'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  * (4 designs)               /RAID2/COURSE/iclab/iclab170/Lab05_2024A/Exercise/02_SYN/TMIP.db, etc
+  fsa0m_a_generic_core_ss1p62v125c (library) /RAID2/COURSE/iclab/iclabTA01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_generic_core_ss1p62v125c.db
+  fsa0m_a_generic_core_ff1p98vm40c (library) /RAID2/COURSE/iclab/iclabTA01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_generic_core_ff1p98vm40c.db
+  fsa0m_a_t33_generic_io_ss1p62v125c (library) /RAID2/COURSE/iclab/iclabTA01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_t33_generic_io_ss1p62v125c.db
+  fsa0m_a_t33_generic_io_tt1p8v25c (library) /RAID2/COURSE/iclab/iclabTA01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_t33_generic_io_tt1p8v25c.db
+  MEM_16b_512_WC (library)    /RAID2/COURSE/iclab/iclab170/Lab05_2024A/Exercise/04_MEM/MEM_16b_512_WC.db
+  MEM_16b_128_WC (library)    /RAID2/COURSE/iclab/iclab170/Lab05_2024A/Exercise/04_MEM/MEM_16b_128_WC.db
+  MEM_16_16_WC (library)      /RAID2/COURSE/iclab/iclab170/Lab05_2024A/Exercise/04_MEM/MEM_16_16_WC.db
+  MEM_32_32_WC (library)      /RAID2/COURSE/iclab/iclab170/Lab05_2024A/Exercise/04_MEM/MEM_32_32_WC.db
+  dw_foundation.sldb (library) /usr/cad/synopsys/synthesis/cur/libraries/syn/dw_foundation.sldb
+
+1
+#======================================================
+#  (C) Global Setting
+#======================================================
+set_wire_load_mode top
+1
+set_operating_conditions -max WCCOM -min BCCOM
+Using operating conditions 'WCCOM' found in library 'fsa0m_a_generic_core_ss1p62v125c'.
+Using operating conditions 'BCCOM' found in library 'fsa0m_a_generic_core_ff1p98vm40c'.
+1
+set_wire_load_model -name G5K -library fsa0m_a_generic_core_ss1p62v125c
+1
+#======================================================
+#  (D) Set Design Constraints
+#======================================================
+# (D-1) Setting Clock Constraints
+create_clock -name clk -period $CYCLE [get_ports clk] 
+1
+set_dont_touch_network             [get_clocks clk]
+1
+set_fix_hold                       [get_clocks clk]
+1
+set_clock_uncertainty       0.1    [get_clocks clk]
+1
+# set_clock_latency   -source 0      [get_clocks clk]
+# set_clock_latency           1      [get_clocks clk] 
+set_input_transition        0.5    [all_inputs] 
+1
+set_clock_transition        0.1    [all_clocks] 
+1
+# (D-2) Setting in/out Constraints
+set_input_delay   -max  $INPUT_DLY  -clock clk   [all_inputs] ;  # set_up time check 
+1
+set_input_delay   -min  0           -clock clk   [all_inputs] ;  # hold   time check 
+1
+set_output_delay  -max  $OUTPUT_DLY -clock clk   [all_outputs] ; # set_up time check 
+1
+set_output_delay  -min  0           -clock clk   [all_outputs] ; # hold   time check 
+1
+set_input_delay 0 -clock clk clk
+1
+set_input_delay 0 -clock clk rst_n
+1
+#set_max_delay $CYCLE -from [all_inputs] -to [all_outputs]
+# (D-3) Setting Design Environment
+# set_driving_cell -library umc18io3v5v_slow -lib_cell P2C    -pin {Y}  [get_ports clk]
+# set_driving_cell -library umc18io3v5v_slow -lib_cell P2C    -pin {Y}  [remove_from_collection [all_inputs] [get_ports clk]]
+# set_load  [load_of "umc18io3v5v_slow/P8C/A"]       [all_outputs] ; # ~= 0.038
+set_load 0.05 [all_outputs]
+1
+# (D-4) Setting DRC Constraint
+#set_max_delay           0     ; # Optimize delay max effort                 
+#set_max_area            0      ; # Optimize area max effort           
+set_max_transition      3       [all_inputs]   ; # U18 LUT Max Transition Value  
+1
+set_max_capacitance     0.15    [all_inputs]   ; # U18 LUT Max Capacitance Value
+1
+set_max_fanout          10      [all_inputs]
+1
+# set_dont_use slow/JKFF*
+#set_dont_touch [get_cells core_reg_macro]
+#set hdlin_ff_always_sync_set_reset true
+# (D-5) Report Clock skew
+report_clock -skew clk
+Information: Checking out the license 'DesignWare'. (SEC-104)
+  Allocating blocks in 'DW_div_uns_a_width10_b_width2'
+  Allocating blocks in 'DW_div_a_width10_b_width2_tc_mode0_rem_mode1'
+Information: Changed wire load model for 'alt1' from '(none)' to 'G5K'. (OPT-170)
+Information: Changed wire load model for 'pparch' from '(none)' to 'G5K'. (OPT-170)
+Information: Changed wire load model for 'alt1' from '(none)' to 'G5K'. (OPT-170)
+Information: Changed wire load model for 'pparch' from '(none)' to 'G5K'. (OPT-170)
+Warning: Design 'DW_div_uns_a_width10_b_width2' inherited license information from design 'DW_div_a_width10_b_width2_tc_mode0_rem_mode1'. (DDB-74)
+Information: Changed wire load model for 'alt1' from '(none)' to 'G5K'. (OPT-170)
+Information: Changed wire load model for 'apparch' from '(none)' to 'G5K'. (OPT-170)
+Information: Updating design information... (UID-85)
+Warning: Design 'TMIP' contains 2 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : clock_skew
+Design : TMIP
+Version: T-2022.03
+Date   : Sun Oct 13 21:46:33 2024
+****************************************
+
+                 Rise      Fall  Min Rise  Min fall        Uncertainty
+Object          Delay     Delay     Delay     Delay     Plus      Minus
+--------------------------------------------------------------------------------
+clk                 -         -         -         -      0.10      0.10
+
+                 Max Transition      Min Transition
+Object           Rise      Fall      Rise      Fall
+-------------------------------------------------------
+clk              0.10      0.10      0.10      0.10
+1
+check_timing
+
+Information: Checking generated_clocks...
+
+Information: Checking loops...
+
+Information: Checking no_input_delay...
+
+Information: Checking unconstrained_endpoints...
+
+Information: Checking pulse_clock_cell_type...
+
+Information: Checking no_driving_cell...
+
+Information: Checking partial_input_delay...
+1
+#======================================================
+#  (E) Optimization
+#======================================================
+check_design > Report/$DESIGN\.check
+set_fix_multiple_port_nets -all -buffer_constants [get_designs *]
+1
+set_fix_hold [all_clocks]
+1
+compile_ultra
+Information: Performing power optimization. (PWR-850)
+Alib files are up-to-date.
+Information: Running optimization using a maximum of 8 cores. (OPT-1500)
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | S-2021.06-DWBB_202106.0 |     *     |
+| Licensed DW Building Blocks        | S-2021.06-DWBB_202106.0 |     *     |
+============================================================================
+
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler NXT WLM                                                           |
+| Comand line  | compile_ultra                                                                     |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 12353                                  |
+| Number of User Hierarchies                              | 3                                      |
+| Sequential Cell Count                                   | 720                                    |
+| Macro Count                                             | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 2                                      |
+| Number of VT class                                      | 0                                      |
+| Number of Clocks                                        | 1                                      |
+| Number of Dont Touch cells                              | 2552                                   |
+| Number of Dont Touch nets                               | 1                                      |
+| Number of size only cells                               | 0                                      |
+| Design with UPF Data                                    | false                                  |
+----------------------------------------------------------------------------------------------------
+| Variables                                               | Value                                  |
+----------------------------------------------------------------------------------------------------
+| set_fix_multiple_port_nets                              | -all -buffer_constants                 |
+====================================================================================================
+Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
+
+Information: There are 105 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+  Simplifying Design 'TMIP'
+
+  Loading target library 'fsa0m_a_generic_core_ff1p98vm40c'
+  Loading target library 'fsa0m_a_t33_generic_io_ss1p62v125c'
+  Loading target library 'fsa0m_a_t33_generic_io_tt1p8v25c'
+  Loading target library 'MEM_16b_512_WC'
+  Loading target library 'MEM_16b_128_WC'
+  Loading target library 'MEM_16_16_WC'
+  Loading target library 'MEM_32_32_WC'
+Loaded alib file './alib-52/fsa0m_a_generic_core_ss1p62v125c.db.alib'
+Loaded alib file './alib-52/fsa0m_a_generic_core_ff1p98vm40c.db.alib'
+Loaded alib file './alib-52/fsa0m_a_t33_generic_io_ss1p62v125c.db.alib' (placeholder)
+Loaded alib file './alib-52/fsa0m_a_t33_generic_io_tt1p8v25c.db.alib' (placeholder)
+Loaded alib file './alib-52/MEM_16b_512_WC.db.alib' (placeholder)
+Loaded alib file './alib-52/MEM_16b_128_WC.db.alib' (placeholder)
+Loaded alib file './alib-52/MEM_16_16_WC.db.alib' (placeholder)
+Loaded alib file './alib-52/MEM_32_32_WC.db.alib' (placeholder)
+Warning: Operating condition WCCOM set on design TMIP has different process,
+voltage and temperatures parameters than the parameters at which target library 
+fsa0m_a_generic_core_ff1p98vm40c is characterized. Delays may be inaccurate as a result. (OPT-998)
+  Building model 'DW01_NAND2'
+Information: Ungrouping hierarchy max0 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy min0 before Pass 1 (OPT-776)
+Information: Ungrouping hierarchy if0 before Pass 1 (OPT-776)
+Information: Ungrouping 3 of 4 hierarchies before Pass 1 (OPT-775)
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping
+  ------------------------
+  Processing 'TMIP'
+Information: Added key list 'DesignWare' to design 'TMIP'. (DDB-72)
+Information: The register 'do_act_cnt_reg[3]' will be removed. (OPT-1207)
+Information: The register 'n_addr_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'n_addr_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'n_addr_reg[2]' is a constant and will be removed. (OPT-1206)
+Information: The register 'n_addr_reg[3]' is a constant and will be removed. (OPT-1206)
+Information: The register 'n_addr_reg[4]' is a constant and will be removed. (OPT-1206)
+Information: The register 'n_addr_reg[5]' is a constant and will be removed. (OPT-1206)
+Information: The register 'n_addr_reg[6]' is a constant and will be removed. (OPT-1206)
+ Implement Synthetic for 'TMIP'.
+  Processing 'TMIP_DW_div_uns_J1_0'
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: The library cell 'TIE1' in the library 'fsa0m_a_generic_core_ss1p62v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'TIE0' in the library 'fsa0m_a_generic_core_ss1p62v125c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'BHD1' in the library 'fsa0m_a_generic_core_ss1p62v125c' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+
+  Beginning Mapping Optimizations  (Ultra High effort)
+  -------------------------------
+  Mapping Optimization (Phase 1)
+  Mapping Optimization (Phase 2)
+  Mapping Optimization (Phase 3)
+  Mapping Optimization (Phase 4)
+  Mapping Optimization (Phase 5)
+  Mapping Optimization (Phase 6)
+  Mapping Optimization (Phase 7)
+  Mapping Optimization (Phase 8)
+  Mapping Optimization (Phase 9)
+  Mapping Optimization (Phase 10)
+  Mapping Optimization (Phase 11)
+  Mapping Optimization (Phase 12)
+  Mapping Optimization (Phase 13)
+  Mapping Optimization (Phase 14)
+  Mapping Optimization (Phase 15)
+
+                                  TOTAL                                                            
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE   MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER      COST    
+  --------- --------- --------- --------- --------- ------------------------- --------- -----------
+    0:02:12  472464.5      1.38      39.0      28.8                           37997760.0000      0.00  
+    0:02:13  471020.9      3.70     104.1     174.3                           37903812.0000      0.00  
+
+  Beginning Constant Register Removal
+  -----------------------------------
+    0:02:13  471555.2      2.18      61.6      44.0                           37966484.0000      0.00  
+    0:02:14  471124.0      2.45      69.1      44.0                           37943144.0000      0.00  
+
+  Beginning Global Optimizations
+  ------------------------------
+  Numerical Synthesis (Phase 1)
+  Numerical Synthesis (Phase 2)
+  Global Optimization (Phase 1)
+  Global Optimization (Phase 2)
+  Global Optimization (Phase 3)
+  Global Optimization (Phase 4)
+  Global Optimization (Phase 5)
+  Global Optimization (Phase 6)
+  Global Optimization (Phase 7)
+  Global Optimization (Phase 8)
+  Global Optimization (Phase 9)
+  Global Optimization (Phase 10)
+  Global Optimization (Phase 11)
+  Global Optimization (Phase 12)
+  Global Optimization (Phase 13)
+  Global Optimization (Phase 14)
+  Global Optimization (Phase 15)
+  Global Optimization (Phase 16)
+  Global Optimization (Phase 17)
+  Global Optimization (Phase 18)
+  Global Optimization (Phase 19)
+  Global Optimization (Phase 20)
+  Global Optimization (Phase 21)
+  Global Optimization (Phase 22)
+  Global Optimization (Phase 23)
+  Global Optimization (Phase 24)
+  Global Optimization (Phase 25)
+  Global Optimization (Phase 26)
+  Global Optimization (Phase 27)
+  Global Optimization (Phase 28)
+  Global Optimization (Phase 29)
+  Global Optimization (Phase 30)
+  Global Optimization (Phase 31)
+
+  Beginning Isolate Ports
+  -----------------------
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:02:17  335567.0      3.49      98.3       0.0                           28081088.0000      0.00  
+    0:02:24  351800.4      0.20       5.8       0.0                           29308002.0000      0.00  
+    0:02:24  351800.4      0.20       5.8       0.0                           29308002.0000      0.00  
+    0:02:25  351447.3      0.20       5.9       0.0                           29316872.0000      0.00  
+    0:02:28  351112.9      0.20       5.9       0.0                           29300550.0000      0.00  
+    0:02:29  350881.7      0.67      19.0       0.0                           29286218.0000      0.00  
+
+  Beginning WLM Backend Optimization
+  --------------------------------------
+    0:02:34  347988.1      0.66      21.2       0.0                           29037966.0000      0.00  
+    0:02:35  348691.2      0.21       5.9       0.0                           29084330.0000      0.00  
+    0:02:35  348691.2      0.21       5.9       0.0                           29084330.0000      0.00  
+    0:02:36  347322.5      0.19       5.2       0.0                           28949824.0000      0.00  
+    0:02:37  347322.5      0.19       5.2       0.0                           28949824.0000      0.00  
+    0:02:41  355006.4      0.00       0.0       0.0                           29491256.0000      0.00  
+    0:02:41  355006.4      0.00       0.0       0.0                           29491256.0000      0.00  
+    0:02:41  355006.4      0.00       0.0       0.0                           29491256.0000      0.00  
+    0:02:41  355006.4      0.00       0.0       0.0                           29491256.0000      0.00  
+    0:02:41  355006.4      0.00       0.0       0.0                           29491256.0000      0.00  
+    0:02:41  355006.4      0.00       0.0       0.0                           29491256.0000      0.00  
+    0:02:41  355006.4      0.00       0.0       0.0                           29491256.0000      0.00  
+    0:02:41  355006.4      0.00       0.0       0.0                           29491256.0000      0.00  
+    0:02:41  355006.4      0.00       0.0       0.0                           29491256.0000      0.00  
+    0:02:41  355006.4      0.00       0.0       0.0                           29491256.0000      0.00  
+    0:02:41  355006.4      0.00       0.0       0.0                           29491256.0000      0.00  
+    0:02:41  355006.4      0.00       0.0       0.0                           29491256.0000      0.00  
+    0:02:41  355006.4      0.00       0.0       0.0                           29491256.0000      0.00  
+    0:02:41  355006.4      0.00       0.0       0.0                           29491256.0000      0.00  
+    0:02:41  355006.4      0.00       0.0       0.0                           29491256.0000      0.00  
+    0:02:41  355006.4      0.00       0.0       0.0                           29491256.0000      0.00  
+    0:02:41  355006.4      0.00       0.0       0.0                           29491256.0000      0.00  
+    0:02:41  355006.4      0.00       0.0       0.0                           29491256.0000      0.00  
+    0:02:41  355006.4      0.00       0.0       0.0                           29491256.0000      0.00  
+
+
+  Beginning Leakage Power Optimization  (max_leakage_power 0)
+  ------------------------------------
+
+                                  TOTAL                                                            
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE   MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER      COST    
+  --------- --------- --------- --------- --------- ------------------------- --------- -----------
+    0:02:41  355006.4      0.00       0.0       0.0                           29491256.0000      0.00  
+  Global Optimization (Phase 32)
+  Global Optimization (Phase 33)
+  Global Optimization (Phase 34)
+  Global Optimization (Phase 35)
+  Global Optimization (Phase 36)
+  Global Optimization (Phase 37)
+  Global Optimization (Phase 38)
+  Global Optimization (Phase 39)
+  Global Optimization (Phase 40)
+  Global Optimization (Phase 41)
+  Global Optimization (Phase 42)
+  Global Optimization (Phase 43)
+  Global Optimization (Phase 44)
+  Global Optimization (Phase 45)
+  Global Optimization (Phase 46)
+  Global Optimization (Phase 47)
+    0:02:45  346388.2      0.00       0.0       0.0                           28689624.0000      0.00  
+    0:02:45  346388.2      0.00       0.0       0.0                           28689624.0000      0.00  
+    0:02:45  346388.2      0.00       0.0       0.0                           28689624.0000      0.00  
+    0:02:46  344044.6      0.00       0.0       0.0                           28521918.0000      0.00  
+    0:02:46  344044.6      0.00       0.0       0.0                           28521918.0000      0.00  
+    0:02:46  344044.6      0.00       0.0       0.0                           28521918.0000      0.00  
+    0:02:46  344044.6      0.00       0.0       0.0                           28521918.0000      0.00  
+    0:02:46  344044.6      0.00       0.0       0.0                           28521918.0000      0.00  
+    0:02:46  344044.6      0.00       0.0       0.0                           28521918.0000      0.00  
+    0:02:46  344044.6      0.00       0.0       0.0                           28521918.0000      0.00  
+    0:02:46  344044.6      0.00       0.0       0.0                           28521918.0000      0.00  
+    0:02:46  344044.6      0.00       0.0       0.0                           28521918.0000      0.00  
+    0:02:46  344044.6      0.00       0.0       0.0                           28521918.0000      0.00  
+    0:02:46  344044.6      0.00       0.0       0.0                           28521918.0000      0.00  
+    0:02:46  344044.6      0.00       0.0       0.0                           28521918.0000      0.00  
+    0:02:46  344044.6      0.00       0.0       0.0                           28521918.0000      0.00  
+    0:02:46  344044.6      0.00       0.0       0.0                           28521918.0000      0.00  
+    0:02:46  344044.6      0.00       0.0       0.0                           28521918.0000      0.00  
+    0:02:46  344044.6      0.00       0.0       0.0                           28521918.0000      0.00  
+    0:02:46  344044.6      0.00       0.0       0.0                           28521918.0000      0.00  
+    0:02:46  344044.6      0.00       0.0       0.0                           28521918.0000      0.00  
+    0:02:46  344044.6      0.00       0.0       0.0                           28521918.0000      0.00  
+
+                                  TOTAL                                                            
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE   MIN DELAY 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER      COST    
+  --------- --------- --------- --------- --------- ------------------------- --------- -----------
+    0:02:47  344016.5      0.00       0.0       0.0                           28521918.0000      0.00  
+    0:02:48  343147.8      0.00       0.0       0.0                           28476746.0000      0.00  
+    0:02:48  343147.8      0.00       0.0       0.0                           28476746.0000      0.00  
+    0:02:48  343147.8      0.00       0.0       0.0                           28476746.0000      0.00  
+    0:02:48  342732.2      0.00       0.0       0.0                           28449306.0000      0.00  
+    0:02:49  341938.5      0.00       0.0       0.0                           28389448.0000      0.00  
+    0:02:49  341938.5      0.00       0.0       0.0                           28389448.0000      0.00  
+    0:02:49  341938.5      0.00       0.0       0.0                           28389448.0000      0.00  
+    0:02:49  341938.5      0.00       0.0       0.0                           28389448.0000      0.00  
+    0:02:49  341938.5      0.00       0.0       0.0                           28389448.0000      0.00  
+    0:02:49  341938.5      0.00       0.0       0.0                           28389448.0000      0.00  
+    0:02:51  340060.5      0.00       0.0       0.0                           28244794.0000      0.00  
+Loading db file '/RAID2/COURSE/iclab/iclabTA01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_generic_core_ss1p62v125c.db'
+Loading db file '/RAID2/COURSE/iclab/iclabTA01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_generic_core_ff1p98vm40c.db'
+Loading db file '/RAID2/COURSE/iclab/iclabTA01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_t33_generic_io_ss1p62v125c.db'
+Loading db file '/RAID2/COURSE/iclab/iclabTA01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_t33_generic_io_tt1p8v25c.db'
+Loading db file '/RAID2/COURSE/iclab/iclab170/Lab05_2024A/Exercise/04_MEM/MEM_16b_512_WC.db'
+Loading db file '/RAID2/COURSE/iclab/iclab170/Lab05_2024A/Exercise/04_MEM/MEM_16b_128_WC.db'
+Loading db file '/RAID2/COURSE/iclab/iclab170/Lab05_2024A/Exercise/04_MEM/MEM_16_16_WC.db'
+Loading db file '/RAID2/COURSE/iclab/iclab170/Lab05_2024A/Exercise/04_MEM/MEM_32_32_WC.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+  Loading target library 'fsa0m_a_generic_core_ff1p98vm40c'
+  Loading target library 'fsa0m_a_t33_generic_io_ss1p62v125c'
+  Loading target library 'fsa0m_a_t33_generic_io_tt1p8v25c'
+  Loading target library 'MEM_16b_512_WC'
+  Loading target library 'MEM_16b_128_WC'
+  Loading target library 'MEM_16_16_WC'
+  Loading target library 'MEM_32_32_WC'
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+Warning: Design has unannotated black box outputs. (PWR-428)
+1
+#uniquify
+#compile
+#======================================================
+#  (F) Output Reports 
+#======================================================
+report_design  >  Report/$DESIGN\.design
+report_resource >  Report/$DESIGN\.resource
+report_timing -max_paths 3 >  Report/$DESIGN\.timing
+report_area >  Report/$DESIGN\.area
+report_power > Report/$DESIGN\.power
+report_clock > Report/$DESIGN\.clock
+report_port >  Report/$DESIGN\.port
+report_power >  Report/$DESIGN\.power
+#report_reference > Report/$DESIGN\.reference
+#======================================================
+#  (G) Change Naming Rule
+#======================================================
+set bus_inference_style "%s\[%d\]"
+%s[%d]
+set bus_naming_style "%s\[%d\]"
+%s[%d]
+set hdlout_internal_busses true
+true
+change_names -hierarchy -rule verilog
+1
+define_name_rules name_rule -allowed "a-z A-Z 0-9 _" -max_length 255 -type cell
+1
+define_name_rules name_rule -allowed "a-z A-Z 0-9 _[]" -max_length 255 -type net
+1
+define_name_rules name_rule -map {{"\\*cell\\*" "cell"}}
+1
+define_name_rules name_rule -case_insensitive
+1
+change_names -hierarchy -rules name_rule
+1
+#======================================================
+#  (H) Output Results
+#======================================================
+set verilogout_higher_designs_first true
+true
+write -format verilog -output Netlist/$DESIGN\_SYN.v -hierarchy
+Writing verilog file '/RAID2/COURSE/iclab/iclab170/Lab05_2024A/Exercise/02_SYN/Netlist/TMIP_SYN.v'.
+1
+write -format ddc     -hierarchy -output $DESIGN\_SYN.ddc
+Writing ddc file 'TMIP_SYN.ddc'.
+1
+write_sdf -version 3.0 -context verilog -load_delay cell Netlist/$DESIGN\_SYN.sdf -significant_digits 6
+Information: Writing timing information to file '/RAID2/COURSE/iclab/iclab170/Lab05_2024A/Exercise/02_SYN/Netlist/TMIP_SYN.sdf'. (WT-3)
+Information: Updating design information... (UID-85)
+1
+write_sdc Netlist/$DESIGN\_SYN.sdc
+1
+#======================================================
+#  (I) Finish and Quit
+#======================================================
+report_area
+ 
+****************************************
+Report : area
+Design : TMIP
+Version: T-2022.03
+Date   : Sun Oct 13 21:49:29 2024
+****************************************
+
+Library(s) Used:
+
+    fsa0m_a_generic_core_ss1p62v125c (File: /RAID2/COURSE/iclab/iclabTA01/UMC018_CBDK/CIC/SynopsysDC/db/fsa0m_a_generic_core_ss1p62v125c.db)
+    MEM_16b_128_WC (File: /RAID2/COURSE/iclab/iclab170/Lab05_2024A/Exercise/04_MEM/MEM_16b_128_WC.db)
+    MEM_16b_512_WC (File: /RAID2/COURSE/iclab/iclab170/Lab05_2024A/Exercise/04_MEM/MEM_16b_512_WC.db)
+
+Number of ports:                           27
+Number of nets:                         10373
+Number of cells:                        10132
+Number of combinational cells:           9420
+Number of sequential cells:               710
+Number of macros/black boxes:               2
+Number of buf/inv:                       1750
+Number of references:                     134
+
+Combinational area:             148746.729945
+Buf/Inv area:                    14567.817499
+Noncombinational area:           39413.102707
+Macro/Black Box area:           151900.660156
+Net Interconnect area:      undefined  (Wire load has zero net area)
+
+Total cell area:                340060.492808
+Total area:                 undefined
+1
+report_timing 
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : TMIP
+Version: T-2022.03
+Date   : Sun Oct 13 21:49:29 2024
+****************************************
+
+Operating Conditions: WCCOM   Library: fsa0m_a_generic_core_ss1p62v125c
+Wire Load Model Mode: top
+
+  Startpoint: act_cnt_reg_5_
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: m0 (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  TMIP               G5K                   fsa0m_a_generic_core_ss1p62v125c
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (rise edge)                    0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  act_cnt_reg_5_/CK (QDFFRBP)              0.00       0.00 r
+  act_cnt_reg_5_/Q (QDFFRBP)               0.47       0.47 r
+  U7919/O (BUF8CK)                         0.20       0.66 r
+  U7929/O (NR2P)                           0.10       0.76 f
+  U9324/O (ND3P)                           0.15       0.91 r
+  U12272/O (INV3)                          0.16       1.08 f
+  U12285/O (ND3HT)                         0.17       1.25 r
+  U9278/O (INV2)                           0.09       1.34 f
+  U9279/O (INV4)                           0.28       1.62 r
+  U7309/O (OR2P)                           0.25       1.86 r
+  U7959/O (OAI12H)                         0.09       1.95 f
+  U7371/O (NR3H)                           0.16       2.11 r
+  U7977/O (OAI12H)                         0.13       2.24 f
+  U12965/O (NR2T)                          0.15       2.39 r
+  U9428/O (ND3HT)                          0.14       2.53 f
+  U7719/O (INV3)                           0.11       2.64 r
+  U9427/O (NR2T)                           0.09       2.73 f
+  U9362/O (OAI12HP)                        0.16       2.89 r
+  U9360/O (ND3HT)                          0.10       2.99 f
+  U9359/O (ND3HT)                          0.10       3.10 r
+  U9357/O (ND3HT)                          0.10       3.19 f
+  U9419/O (ND3HT)                          0.15       3.35 r
+  U7985/O (BUF12CK)                        0.21       3.56 r
+  U7854/OB (MXL2HT)                        0.14       3.70 r
+  U7375/O (ND2P)                           0.11       3.81 f
+  U7899/O (ND3P)                           0.14       3.95 r
+  U13309/O (ND3HT)                         0.14       4.09 f
+  U13310/O (OAI12HT)                       0.25       4.34 r
+  U13313/OB (MXL2H)                        0.22       4.56 r
+  U9664/O (NR2T)                           0.11       4.67 f
+  U9668/O (NR2T)                           0.13       4.80 r
+  U9666/O (ND3P)                           0.10       4.89 f
+  U9665/O (ND3P)                           0.11       5.00 r
+  U9673/O (ND2P)                           0.09       5.10 f
+  U13350/O (ND2F)                          0.16       5.26 r
+  U13351/O (BUF12CK)                       0.21       5.46 r
+  U7189/OB (MXL2HS)                        0.19       5.66 r
+  U7184/O (NR2P)                           0.15       5.81 f
+  U7180/O (NR2P)                           0.15       5.96 r
+  U7472/O (NR2P)                           0.10       6.06 f
+  U7396/O (AOI12HS)                        0.21       6.28 r
+  U9471/O (MOAI1H)                         0.12       6.40 f
+  U7614/O (BUF4CK)                         0.23       6.63 f
+  U7166/OB (MXL2HS)                        0.30       6.93 r
+  U15193/O (NR2)                           0.14       7.07 f
+  U15196/O (NR2)                           0.18       7.25 r
+  U8163/O (AOI12HS)                        0.16       7.41 f
+  U9443/O (OAI12H)                         0.27       7.67 r
+  U9057/OB (MXL2HS)                        0.20       7.87 r
+  U7150/O (INV1S)                          0.20       8.07 f
+  U9482/O (AOI22H)                         0.23       8.31 r
+  U7146/O (OR2)                            0.30       8.61 r
+  U15218/O (OAI12HT)                       0.15       8.76 f
+  U7949/O (INV3)                           0.12       8.88 r
+  U15237/O (NR2F)                          0.10       8.98 f
+  U9355/OB (MXL2H)                         0.19       9.17 f
+  U9354/O (ND3HT)                          0.14       9.31 r
+  U9351/O (ND3HT)                          0.13       9.44 f
+  U9483/O (NR2T)                           0.13       9.57 r
+  U9537/O (ND3HT)                          0.14       9.71 f
+  U9506/O (ND2F)                           0.14       9.85 r
+  U9501/O (ND2)                            0.14       9.99 f
+  U16378/O (ND3P)                          0.18      10.17 r
+  m0/DI4 (MEM_16b_512)                     0.00      10.17 r
+  data arrival time                                  10.17
+
+  clock clk (rise edge)                   11.30      11.30
+  clock network delay (ideal)              0.00      11.30
+  clock uncertainty                       -0.10      11.20
+  m0/CK (MEM_16b_512)                      0.00      11.20 r
+  library setup time                      -1.03      10.17
+  data required time                                 10.17
+  -----------------------------------------------------------
+  data required time                                 10.17
+  data arrival time                                 -10.17
+  -----------------------------------------------------------
+  slack (MET)                                         0.00
+
+
+1
+exit
+
+Memory usage for this session 576 Mbytes.
+Memory usage for this session including child processes 906 Mbytes.
+CPU usage for this session 556 seconds ( 0.15 hours ).
+Elapsed time for this session 185 seconds ( 0.05 hours ).
+
+Thank you...
+
